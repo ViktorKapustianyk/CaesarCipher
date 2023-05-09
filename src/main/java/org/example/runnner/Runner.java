@@ -7,12 +7,15 @@ import org.example.cipher.Caesar;
 import org.example.constants.Constants;
 
 public class Runner {
+    Console console = new Console();
     FileService fileService = new FileService();
     Caesar cipher = new Caesar(Constants.ALPHABET_EN);
     BruteForce bruteForce = new BruteForce(Constants.ALPHABET_EN, cipher);
     public void run(String[] args) {
         if (args.length < 3 ) {
-            System.out.println("Usage: java Main <command> <file_path> <key>");
+//            System.out.println("Usage: java Main <command> <file_path> <key>");
+            System.out.println("You launched the console version of the program");
+            console.runFromConsole();
             return;
         }
             String command = args[0];
@@ -32,9 +35,7 @@ public class Runner {
                 String contentToFile = bruteForce.bruteForce(contentFromFileEncrypt, cipher);
                 fileService.writeFileDecrypte(filePath, contentToFile);
             } else {
-                Console console = new Console();
                 console.runFromConsole();
             }
-
     }
 }

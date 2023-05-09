@@ -7,10 +7,10 @@ import org.example.constants.Constants;
 import java.util.Scanner;
 
 public class Console {
-    private final String firstQuestion = "What do you want to do with text?";
-    private final String chooseLanguage = "What language is used in the text?\nWrite one of the commands and press enter\n[u]Ukrainian [e]English";
+    private final String firstQuestion = "You have launched the Caesar Cipher program";
+//    private final String chooseLanguage = "What language is used in the text?\nWrite one of the commands and press enter\n[u]Ukrainian [e]English";
     private final String chooseCommand = "Write one of the commands and press enter\n[e]encrypt [d]decrypt [b]bruteForce";
-    private final String filePath = "Write path to the file";
+    private final String filePath = "Write the path to the file you want to encrypt or decrypt";
     private final String chooseKey = "Choose the key";
 
     public void runFromConsole () {
@@ -22,7 +22,6 @@ public class Console {
         System.out.println(firstQuestion);
         //System.out.println(chooseLanguage);
         //String language = scanner.nextLine();
-
 
         System.out.println(filePath);
         String filePath = scanner.nextLine();

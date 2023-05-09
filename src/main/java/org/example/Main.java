@@ -6,11 +6,13 @@ import org.example.cipher.Cipher;
 import org.example.constants.Constants;
 import org.example.runnner.Runner;
 
+import java.io.IOException;
 import java.lang.constant.Constable;
 
 public class Main {
-    public static void main(String[] args) {
-        Console.runFromConsole();
+    public static void main(String[] args) throws IOException {
+        Runner runner = new Runner();
+        runner.run(args);
 
 //        FileService fileService = new FileService();
 //        Cipher cipher = new Caesar(Constants.ALPHABET_EN);

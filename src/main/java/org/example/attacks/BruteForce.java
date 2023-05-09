@@ -1,13 +1,11 @@
 package org.example.attacks;
 
 import org.example.cipher.Caesar;
-import org.example.constants.Constants;
-
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-public class BruteForce extends Caesar{
+public class BruteForce {
     private final List<String> WORDS = Arrays.asList(
             "the", "and", "is", "are", "in", "at", "that", "this", "for", "to", "on", "with", "it",
             "of", "an", "as", "be", "was", "or", "by", "from", "not", "but", "you", "all", "they",
@@ -17,15 +15,16 @@ public class BruteForce extends Caesar{
             "their", "them", "because", "could", "would", "should", "will", "can", "may", "might"
     );
 
-    public BruteForce(ArrayList<Character> alphabet) {
-        super(alphabet);
+    private  ArrayList<Character> alphabet;
+    public BruteForce(ArrayList<Character> alphabet, Caesar cipher) {
+        this.alphabet = alphabet;
     }
 
-    public String bruteForce(String message) {
+    public String bruteForce(String message, Caesar caesar) {
         int resultKey = 0;
         int maxWords = 0;
-        for (int key = 0; key <= Constants.ALPHABET_EN.size(); key++) {
-            String result = Caesar.decrypt(message, Constants.ALPHABET_EN, key);
+        for (int key = 0; key <= alphabet.size(); key++) {
+            String result = caesar.decrypt(message, key);
             int commonWords = countWords(result);
             if (commonWords > maxWords) {
                 maxWords = commonWords;
@@ -33,7 +32,7 @@ public class BruteForce extends Caesar{
             }
 
         }
-        return Caesar.decrypt(message, Constants.ALPHABET_EN, resultKey);
+        return caesar.decrypt(message, resultKey);
     }
 
 

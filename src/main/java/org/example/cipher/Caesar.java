@@ -10,6 +10,7 @@ public class Caesar extends Cipher{
     public Caesar(ArrayList<Character> alphabet) {
         this.alphabet = alphabet;
     }
+
     public  String encrypt(String message, int key) {
         return Cipher.encrypt(message, alphabet, key);
     }

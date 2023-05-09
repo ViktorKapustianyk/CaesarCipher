@@ -6,7 +6,9 @@ import org.example.cipher.Cipher;
 import org.example.constants.Constants;
 
 public class Runner {
-    public static void run(String[] args) {
+    FileService fileService = new FileService();
+    Caesar cipher = new Caesar(Constants.ALPHABET_EN);
+    public void run(String[] args) {
         if (args.length < 3) {
             System.out.println("Usage: java Main <command> <file_path> <key>");
             System.exit(1);
@@ -17,13 +19,13 @@ public class Runner {
         Integer key = Integer.valueOf(args[2]);
 
         if (command.equals("ENCRYPT")) {
-            String contentFromFile = FileService.readFile(filePath);
-            String contentToFile = Caesar.encrypt(contentFromFile, Constants.ALPHABET_EN, key);
-            FileService.writeFileEncrypte(filePath, contentToFile);
+            String contentFromFile = fileService.readFile(filePath);
+            String contentToFile = cipher.encrypt(contentFromFile, key);
+            fileService.writeFileEncrypte(filePath, contentToFile);
         } else if (command.equals("DECRYPT")) {
-            String contentFromFileEncrypt = FileService.readFile(filePath);
-            String contentToFileDecrypt = Cipher.decrypt(contentFromFileEncrypt,Constants.ALPHABET_EN, key);
-            FileService.writeFileDecrypte(filePath, contentToFileDecrypt);
+            String contentFromFileEncrypt = fileService.readFile(filePath);
+            String contentToFileDecrypt = cipher.decrypt(contentFromFileEncrypt, key);
+            fileService.writeFileDecrypte(filePath, contentToFileDecrypt);
         }
     }
 }

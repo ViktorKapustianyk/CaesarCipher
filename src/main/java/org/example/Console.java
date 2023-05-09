@@ -15,7 +15,10 @@ public class Console {
     private static final String chooseKey = "Choose the key";
 
     public static void runFromConsole () {
+        FileService fileService = new FileService();
         Caesar caesar = new Caesar(Constants.ALPHABET_EN);
+        BruteForce bruteForce = new BruteForce(Constants.ALPHABET_EN);
+
         Scanner scanner = new Scanner(System.in);
         System.out.println(firstQuestion);
         //System.out.println(chooseLanguage);
@@ -31,19 +34,19 @@ public class Console {
         if (command.equals("e")) {
             System.out.println(chooseKey);
             Integer key = scanner.nextInt();
-            String contentFromFile = FileService.readFile(filePath);
+            String contentFromFile = fileService.readFile(filePath);
             String contentToFile = caesar.encrypt(contentFromFile, key);
-            FileService.writeFileEncrypte(filePath, contentToFile);
+            fileService.writeFileEncrypte(filePath, contentToFile);
         } else if (command.equals("d")) {
             System.out.println(chooseKey);
             Integer key = scanner.nextInt();
-            String contentFromFileEncrypt = FileService.readFile(filePath);
+            String contentFromFileEncrypt = fileService.readFile(filePath);
             String contentToFileDecrypt = caesar.decrypt(contentFromFileEncrypt, key);
-            FileService.writeFileDecrypte(filePath, contentToFileDecrypt);
+            fileService.writeFileDecrypte(filePath, contentToFileDecrypt);
         } else if (command.equals("b")) {
-            String contentFromFileEncrypt = FileService.readFile(filePath);
-            String contentToFileDecrypt = caesar.bruteForce(contentFromFileEncrypt);
-            FileService.writeFileDecrypte(filePath, contentToFileDecrypt);
+            String contentFromFileEncrypt = fileService.readFile(filePath);
+            String contentToFileDecrypt = bruteForce.bruteForce(contentFromFileEncrypt);
+            fileService.writeFileDecrypte(filePath, contentToFileDecrypt);
         }
     }
 }

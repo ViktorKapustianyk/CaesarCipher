@@ -3,7 +3,7 @@ package org.example.cipher;
 import java.util.ArrayList;
 
 public class Cipher {
-    public static String encrypt(String message, ArrayList<Character> alphabet, int key) {
+    protected static String encrypt(String message, ArrayList<Character> alphabet, int key) {
         StringBuilder encryptedMessage = new StringBuilder();
         int alphabetLength = alphabet.size();
         for (int i = 0; i < message.length(); i++) {
@@ -17,7 +17,7 @@ public class Cipher {
         return encryptedMessage.toString();
     }
 
-    public static String decrypt(String encryptMessage, ArrayList<Character> alphabet, int key) {
+    protected static String decrypt(String encryptMessage, ArrayList<Character> alphabet, int key) {
         StringBuilder encryptedMessage = new StringBuilder();
         int alphabetLength = alphabet.size();
         for (int i = 0; i < encryptMessage.length(); i++) {

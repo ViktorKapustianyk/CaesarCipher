@@ -18,6 +18,4 @@ public class Caesar extends Cipher{
         return Cipher.decrypt(message, alphabet, key);
     }
 
-    public  String bruteForce(String message) { return BruteForce.bruteForce(message); }
-
 }

@@ -1,4 +1,7 @@
 package org.example.commands;
 
-public class Command {
+public enum Command {
+    ENCRYPT,
+    DECRYPT,
+    BRUTE_FORCE
 }

@@ -6,7 +6,6 @@ import org.example.constants.Constants;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-import java.util.Locale;
 
 public class BruteForce {
     private final List<String> WORDS_EN = Arrays.asList(
@@ -24,7 +23,7 @@ public class BruteForce {
             "хто", "який", "чому", "якщо", "все", "усе", "той", "та", "тий", "цей", "ця", "це", "ці", "собі", "дім"
     );
 
-    private  ArrayList<Character> alphabet;
+    private final ArrayList<Character> alphabet;
     public BruteForce(ArrayList<Character> alphabet, Caesar cipher) {
         this.alphabet = alphabet;
     }

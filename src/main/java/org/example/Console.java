@@ -40,22 +40,23 @@ public class Console {
         System.out.println(chooseCommand);
         String command = scanner.nextLine();
 
-        if (command.equals("e")) {
-            System.out.println(chooseKey);
-            Integer key = scanner.nextInt();
-            //String contentFromFile = fileService.readFile(filePath);
-            String contentToFile = caesar.encrypt(contentFromFile, key);
-            fileService.writeFileEncrypte(filePath, contentToFile);
-        } else if (command.equals("d")) {
-            System.out.println(chooseKey);
-            Integer key = scanner.nextInt();
-            //String contentFromFileEncrypt = fileService.readFile(filePath);
-            String contentToFileDecrypt = caesar.decrypt(contentFromFile, key);
-            fileService.writeFileDecrypte(filePath, contentToFileDecrypt);
-        } else if (command.equals("b")) {
-            //String contentFromFileEncrypt = fileService.readFile(filePath);
-            String contentToFileDecrypt = bruteForce.bruteForce(contentFromFile, caesar);
-            fileService.writeFileDecrypte(filePath, contentToFileDecrypt);
+        switch (command) {
+            case "e" -> {
+                System.out.println(chooseKey);
+                int key = scanner.nextInt();
+                String contentToFile = caesar.encrypt(contentFromFile, key);
+                fileService.writeFileEncrypte(filePath, contentToFile);
+            }
+            case "d" -> {
+                System.out.println(chooseKey);
+                int key = scanner.nextInt();
+                String contentToFileDecrypt = caesar.decrypt(contentFromFile, key);
+                fileService.writeFileDecrypte(filePath, contentToFileDecrypt);
+            }
+            case "b" -> {
+                String contentToFileDecrypt = bruteForce.bruteForce(contentFromFile, caesar);
+                fileService.writeFileDecrypte(filePath, contentToFileDecrypt);
+            }
         }
     }
 }

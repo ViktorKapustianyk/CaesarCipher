@@ -22,7 +22,7 @@ public class FileService {
             throw new RuntimeException(e);
         }
     }
-    public void writeFileEncrypte (String fileName, String content) {
+    public void writeFileEncrypt (String fileName, String content) {
         try {
             Path outputFilePath = Paths.get(getNewFileName(fileName, ADD_ENCRYPTED));
             if (Files.notExists(outputFilePath)) {
@@ -33,7 +33,7 @@ public class FileService {
             throw new RuntimeException(e);
         }
     }
-    public void writeFileDecrypte (String fileName, String content) {
+    public void writeFileDecrypt (String fileName, String content) {
         try {
             Path outputFilePath = Paths.get(getNewFileName(fileName, ADD_DECRYPTED));
             if (Files.notExists(outputFilePath)) {

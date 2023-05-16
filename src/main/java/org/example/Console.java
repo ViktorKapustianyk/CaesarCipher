@@ -45,17 +45,17 @@ public class Console {
                 System.out.println(chooseKey);
                 int key = scanner.nextInt();
                 String contentToFile = caesar.encrypt(contentFromFile, key);
-                fileService.writeFileEncrypte(filePath, contentToFile);
+                fileService.writeFileEncrypt(filePath, contentToFile);
             }
             case "d" -> {
                 System.out.println(chooseKey);
                 int key = scanner.nextInt();
                 String contentToFileDecrypt = caesar.decrypt(contentFromFile, key);
-                fileService.writeFileDecrypte(filePath, contentToFileDecrypt);
+                fileService.writeFileDecrypt(filePath, contentToFileDecrypt);
             }
             case "b" -> {
                 String contentToFileDecrypt = bruteForce.bruteForce(contentFromFile, caesar);
-                fileService.writeFileDecrypte(filePath, contentToFileDecrypt);
+                fileService.writeFileDecrypt(filePath, contentToFileDecrypt);
             }
         }
     }

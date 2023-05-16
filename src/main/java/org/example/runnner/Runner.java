@@ -39,15 +39,15 @@ public class Runner {
         switch (command) {
             case "ENCRYPT" -> {
                 String contentToFile = cipher.encrypt(contentFromFile, key);
-                fileService.writeFileEncrypte(filePath, contentToFile);
+                fileService.writeFileEncrypt(filePath, contentToFile);
             }
             case "DECRYPT" -> {
                 String contentToFileDecrypt = cipher.decrypt(contentFromFile, key);
-                fileService.writeFileDecrypte(filePath, contentToFileDecrypt);
+                fileService.writeFileDecrypt(filePath, contentToFileDecrypt);
             }
             case "BRUTE_FORCE" -> {
                 String contentToFile = bruteForce.bruteForce(contentFromFile, cipher);
-                fileService.writeFileDecrypte(filePath, contentToFile);
+                fileService.writeFileDecrypt(filePath, contentToFile);
             }
             default -> console.runFromConsole();
         }

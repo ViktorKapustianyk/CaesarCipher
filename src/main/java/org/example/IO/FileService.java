@@ -1,5 +1,6 @@
 package org.example.IO;
 
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
@@ -9,9 +10,14 @@ public class FileService {
     private final String ADD_ENCRYPTED = " [ENCRYPTED]";
     private final String ADD_DECRYPTED = " [DECRYPTED]";
 
-    public String readFile (String fileName) {
+    public String readFile(String fileName) {
         try {
-            return Files.readString(Path.of(fileName));
+            Path filePath = Path.of(fileName);
+            if (Files.exists(filePath)) {
+                return Files.readString(filePath);
+            } else {
+                throw new FileNotFoundException("File not found: " + fileName );
+            }
         } catch (IOException e) {
             throw new RuntimeException(e);
         }

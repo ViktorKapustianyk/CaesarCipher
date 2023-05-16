@@ -1,8 +1,9 @@
+out/
 target/
 !.mvn/wrapper/maven-wrapper.jar
 !**/src/main/**/target/
 !**/src/test/**/target/
-out/
+
 
 ### IntelliJ IDEA ###
 .idea/

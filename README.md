@@ -1,27 +1,32 @@
 # CaesarCipher
-Цей додаток реалізує шифрування та дешифрування повідомлень з використанням Шифру Цезаря. 
-Додаток можна запустити з консолі і передати аргументи для виконання операцій.
-Для запуску програми з консолі використовуйте наступну команду: java -jar CaesarCipher.jar command filePath key
-- `command` - один з трьох варіантів: `ENCRYPT`, `DECRYPT`, `BRUTE_FORCE`.
-- `filePath` - абсолютний шлях до файлу, який буде шифруватися або дешифруватися.
-- `key` - ціле число, яке використовується для зсуву по алфавіту.
-Передача `key` є обов'язковою. У разі передачі `BRUTE_FORCE` можна вказати будь-який `key`.
 
-Якщо програма запущена без переданих аргументів, то взаємодіяти з программою можна використовуючи командний рядок. 
+This application implements encryption and decryption of messages using the Caesar Cipher.
 
-Результат виконання програми буде збережений у вихідній папці файлу з тим самим ім'ям, але з поміткою `[ENCRYPTED]` 
-або `[DECRYPTED]` в залежності від виконаної операції.
+The application can be run from the command line by passing arguments for operations.
 
-Вхідний файл повинен містити текст українською або анлійською мовою, який буде шифруватися або дешифруватися. 
-Программа самостійно визначить мову і використає відповідний алфавіт для шифрування.
-Шифрування/дешифрування виконується за допомогою шифру Цезаря з використанням заданого ключа. 
-Зсув по алфавіту є циклічним, що означає, що якщо ключ більший за кількість літер в алфавіті, то зсув буде починатися з початку алфавіту.
+To run the program from the command line, use the following command: java -jar CaesarCipher.jar command filePath key
 
-Старався писати зрозумілий і простий для читання код. Створював окремі класи і пакети для різного функціоналу. 
-Використовува обʼєкти і не забував про модифікатори доступу. Прошу дати рекомендації по використанню ООП. 
-Реалізував метод який змінює назву файлу з урахуванням розширення і без. Для автоматичного визначення алфавіту тексту (укр/англ), 
-створив метод який робить перевірку наявності українських літер у заданому тексті. Цей код можна доповнити додатковими літерами 
-та правилами перевірки для виявлення інших мов. Це дозволяє розширити його функціональність для використання у більш широкому контексті.
+- `command` - one of three options: `ENCRYPT`, `DECRYPT`, `BRUTE_FORCE`.
+- `filePath` - the absolute path to the file to be encrypted or decrypted.
+- `key` - an integer used for shifting through the alphabet.
 
-Не вдалося реалізувати частотний аналіз (Криптограф). Є декілька методів код в яких повторюється. 
-Не зробив перевірку на коректність введених команд. Не реалізував функціонал який дозволяє не передавати key при BRUTE_FORCE.
+Passing `key` is mandatory. In the case of `BRUTE_FORCE`, any `key` can be specified.
+
+If the program is launched without arguments, you can interact with it using the command line.
+
+The result of the program's execution will be saved in the output folder with the same name as the original file, but with the `[ENCRYPTED]` or `[DECRYPTED]` tag depending on the operation performed.
+
+The input file should contain text in either Ukrainian or English, which will be encrypted or decrypted. The program will automatically determine the language and use the appropriate alphabet for encryption. Encryption/decryption is performed using the Caesar Cipher with the specified key. The alphabet shift is cyclical, meaning that if the key is greater than the number of letters in the alphabet, the shift will start from the beginning of the alphabet.
+
+## Development
+
+During the development of this application, the following points were considered:
+
+- Creating separate classes and packages for different functionality.
+- Utilizing object-oriented programming and access modifiers.
+- Implementing a method that changes the file name with or without considering the file extension.
+- Creating a method for automatically detecting the text's alphabet (Ukrainian/English).
+
+## Extending Functionality
+
+This code can be extended with additional letters and rules for detecting other languages. This allows for expanding its functionality for use in a broader context.
